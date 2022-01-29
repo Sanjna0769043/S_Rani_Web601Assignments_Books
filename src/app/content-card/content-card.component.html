@@ -1,0 +1,22 @@
+<div>
+    <h4>LIST OF BOOKS:</h4>
+</div>
+<div *ngFor="let content of contentList">
+    <p><strong>ID:</strong>   {{content.id}}</p>
+    <p><strong>TITLE:</strong>  {{content.title}}</p>
+    <p><strong>DESCRIPTION:</strong>  {{content.description}}</p>
+    <p><strong>CREATOR:</strong>  {{content.creator}}</p>
+    <hr>
+</div>
+<div *ngIf="arrayIndex">
+    <h4>Index 2 in content list</h4>
+    <p><strong>ID:</strong>   {{arrayIndex.id}}</p>
+    <p><strong>TITLE:</strong>  {{arrayIndex.title}}</p>
+    <p><strong>DESCRIPTION:</strong>  {{arrayIndex.description}}</p>
+    <p><strong>CREATOR:</strong>  {{arrayIndex.creator}}</p>
+    <hr>
+</div>
+
+<div *ngIf="!errorArrayIndex" style="color: red;">
+    <h4>Index is out of content list - it is error</h4>
+</div>
