@@ -1,0 +1,14 @@
+.contentcard{
+    width: 400px;
+    border: 1px solid grey;
+    margin-right: 4px;
+    padding: 10px;
+}
+
+.one{
+    width: 400px;
+    border: 2px solid black;
+    margin-right: 4px;
+    padding: 10px;   
+}
+

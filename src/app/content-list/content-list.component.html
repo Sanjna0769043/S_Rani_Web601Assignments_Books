@@ -1,0 +1,17 @@
+<div>
+    <h1 style="color: rgb(137, 137, 173)">LIST OF BOOKS:</h1>
+</div>
+<div>
+    <div *ngFor="let content of contentList; let i = index" >
+        <div *ngIf="i < 5" [ngClass]="(i > 0) ? contentcard: one">
+        <p><strong style="color: red;">ID:</strong>   {{content.id}}</p>
+        <p><strong style="color:blue">TITLE:</strong>  {{content.title}}</p>
+        <img src="{{content.imgURL}}" width="240" height="216" alt="" (click)="imageClick(i)">
+        <p><strong style="color:orange">DESCRIPTION:</strong>  {{content.description}}</p>
+        <p><strong style="color:blueviolet">CREATOR:</strong>  {{content.Creator}}</p>
+        <p><strong style="color: goldenrod;">TAGS:<span *ngFor="let tag of content?.tags">{{" "}}{{ tag }}</span></strong></p>
+    </div>
+        <br>
+    </div>
+</div>
+
