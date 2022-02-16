@@ -1,0 +1,12 @@
+<div>
+    <h4 style="color: blue">LIST OF BOOKS:</h4>
+</div>
+<div *ngFor="let content of contentList">
+    <p><strong>ID:</strong>   {{content.id}}</p>
+    <p><strong>NAME:</strong>  {{content.title}}</p>
+    <img src="{{content.imgURL}}" width="247" height="216" alt="">
+    <p><strong>DESCRIPTION:</strong>  {{content.description}}</p>
+    <p><strong>PRICE:</strong>  {{content.prize}}</p>
+    <hr>
+</div>
+
