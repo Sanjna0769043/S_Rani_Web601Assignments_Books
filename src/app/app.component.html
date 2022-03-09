@@ -1,0 +1,12 @@
+<form class="contentForm">
+  <h2>Search Content</h2>
+  <label for="id">ID: </label>
+  <input type="number" step="1" name="id" id="id" #id required />
+  <button type="button" (click)="getContentItem(id.value)">
+    Get Content Item
+  </button>
+</form>
+
+<app-content-card [contentId]="contentId"></app-content-card>
+<app-messages></app-messages>
+<app-content-list [contentId]="contentId"></app-content-list>
