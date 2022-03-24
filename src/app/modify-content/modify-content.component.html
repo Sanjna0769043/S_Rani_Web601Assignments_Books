@@ -1,0 +1,38 @@
+<form class="contentForm">
+  <h2>Create Content</h2>
+  <label for="id">ID: </label>
+  <input type="number" step="1" name="id" id="id" #id />
+  <label for="title">Title: <span style="color:red">*</span> </label>
+  <input type="text" name="title" id="title" #title required />
+  <label for="description">Description: <span style="color:red">*</span></label>
+  <textarea type="text" name="description" id="description" #description required></textarea>
+  <label for="prize">Prize: <span style="color:red">*</span></label>
+  <input type="text" name="prize" id="prize" #prize required />
+  <label for="imgURL">Image URL: <span style="color:red">*</span></label>
+  <input type="text" name="imgURL" id="imgURL" #imgURL required />
+  <label for="type">Type : <span style="color:red">*</span></label>
+  <select name="type" id="type" #type required>
+    <option value="" disabled selected>Select Type</option>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+  <label for="tags">Tags: <span style="color:red">*</span></label>
+  <input type="text" name="tags" id="tags" #tags required />
+  <button type="submit" (click)="
+      addContent(
+        id.value,
+        title.value,
+        description.value,
+        prize.value,
+        imgURL.value,
+        type.value,
+        tags.value,
+        $event
+      )
+    ">
+    <span *ngIf="!isIdFoundInDb">Add Content</span>
+    <span *ngIf="isIdFoundInDb">Update Content</span>
+  </button>
+  <h2 *ngIf="isShowError" style="color: red;">{{errorMessage}}</h2>
+</form>

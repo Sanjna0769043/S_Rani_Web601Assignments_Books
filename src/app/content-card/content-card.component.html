@@ -1,0 +1,10 @@
+<div *ngIf="content && content.id" class="content-card ">
+  <p><strong>ID:</strong> {{content.id}}</p>
+  <p appHoverEffect><strong>TITLE:</strong> {{content.title}}</p>
+  <img style="margin-left:40px;" src="{{content.imgURL ? content.imgURL : '../../assets/img/default.jpg' }}" width="240"
+    height="216" alt="">
+  <p><strong>DESCRIPTION:</strong> {{content.description}}</p>
+  <p><strong>PRIZE:</strong> {{content.prize}}</p>
+  <span><strong>SIZE:</strong><span *ngFor="let size of content?.tags" appHoverEffect
+      class="tag">{{" "}}{{ size }}</span></span>
+</div>
