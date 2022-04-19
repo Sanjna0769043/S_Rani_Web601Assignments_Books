@@ -1,0 +1,13 @@
+<mat-card class="content-card" *ngIf="!contentId">
+  <mat-card-title>Add new content to list</mat-card-title>
+  <mat-card-content>
+    <button mat-raised-button color="primary" (click)="addContent()">
+      Add Content
+    </button>
+  </mat-card-content>
+</mat-card>
+<div style="margin-top: 15px" *ngIf="contentId">
+  <button mat-raised-button color="warn" (click)="updateContent()">
+    Update Content
+  </button>
+</div>

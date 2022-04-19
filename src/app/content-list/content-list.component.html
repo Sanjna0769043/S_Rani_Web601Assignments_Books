@@ -1,0 +1,52 @@
+<section>
+  <form style="display: flex; justify-content: center">
+    <mat-card class="content-card">
+      <mat-card-title>Search content by title</mat-card-title>
+      <mat-card-content>
+        <mat-form-field appearance="standard" style="padding-right: 10px">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="search" name="search" #inputValue />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="searchContentInList(inputValue.value)"
+        >
+          Click
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>
+
+<div>
+  <h1 style="text-align: center; font-size: 2.25rem; margin-top: 25px">
+    <strong>Books List:</strong>
+  </h1>
+</div>
+<div style="display: flex; flex-wrap: wrap">
+  <div
+    *ngFor="
+      let content of filteredContentData;
+      first as isFirst;
+      last as isLast
+    "
+    [ngClass]="{ shadow: contentId == content.id }"
+  >
+    <div
+      style="margin: 5px"
+      [class]="content.type"
+      appBorder
+      [class]="
+        isFirst
+          ? [firstcard, content.type]
+          : isLast
+          ? [lastcard, content.type]
+          : content.type
+      "
+    >
+      <app-content-card [content]="content"></app-content-card>
+    </div>
+  </div>
+</div>

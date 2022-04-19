@@ -1,0 +1,49 @@
+<div *ngIf="content && content.id">
+  <mat-card class="content-card">
+    <mat-card-title>
+      <div
+        appHoverEffect
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div>{{ content.title }} (<strong>ID:</strong> {{ content.id }})</div>
+        <app-modify-content
+          [contentId]="content.id"
+          (updatedContentEvent)="updateContent($event)"
+        ></app-modify-content>
+      </div>
+    </mat-card-title>
+    <img
+      mat-card-image
+      width="150"
+      height="150"
+      src="{{
+        content.imgURL ? content.imgURL : '../../assets/img/default.jpg'
+      }}"
+      alt="content-image"
+    />
+    <mat-card-content>
+      <p><strong>Description:</strong> {{ content.description }}</p>
+      <p>
+        <strong style="font-size: 1.25rem">PRIZE: {{ content.prize }}</strong>
+      </p>
+      <p>
+        <strong>SIZE:</strong>
+        <span *ngFor="let size of content?.tags" appHoverEffect class="tag">
+          <span
+            style="
+              padding: 5px;
+              margin: 3px;
+              border: 2px solid white;
+              border-radius: 15%;
+            "
+            >{{ size }}</span
+          >
+        </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

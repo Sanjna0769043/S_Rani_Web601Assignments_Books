@@ -1,0 +1,45 @@
+<div style="display: flex; justify-content: center; margin: 25px">
+  <app-messages></app-messages>
+</div>
+
+<div style="display: flex; justify-content: center; margin: 25px">
+  <app-modify-content
+    style="margin-right: 25px"
+    (newContentEvent)="getNewContact($event)"
+  ></app-modify-content>
+  <form style="margin-right: 25px">
+    <mat-card class="content-card">
+      <mat-card-title>Search content by id</mat-card-title>
+      <mat-card-content>
+        <mat-form-field appearance="standard">
+          <mat-label>ID:</mat-label>
+          <input
+            matInput
+            placeholder="Id"
+            inputmode="numeric"
+            name="id"
+            #idInput
+          />
+          <mat-error>ID is required</mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="getContentDetails(idInput.value)"
+        >
+          Get Content Item
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+  <app-content-card
+    [content]="content"
+    (updatedContentEvent)="getNewContact($event)"
+  ></app-content-card>
+</div>
+
+<app-content-list
+  [contentId]="contentId"
+  [newContent]="newContent"
+></app-content-list>
